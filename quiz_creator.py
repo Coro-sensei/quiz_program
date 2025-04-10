@@ -3,11 +3,11 @@
 # Write the collected data to a text file. 
 # Ask another question until the user chose to exit
 
-# Ask the user for a question
-question_input = input("Enter your question: ")
+# Ask the user for a question until exit
+while True:
 
-# Ask the user to input 4 possible with a correct answer in those 4 possible answer
-question_answer = input("Enter 4 possible answers: ")
+    question_input = input("Enter your question: (Type exit if you wish to exit:)")
+    if question_input.lower() == "exit":
+        print("Ending program.")
+    break
 
-# Put the inputs in a text file 
-# Ask until chose to exit
