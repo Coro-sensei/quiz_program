@@ -30,7 +30,8 @@ question_data_bank = {
     "letter_a": letter_a,
     "letter_b": letter_b,
     "letter_c": letter_c,
-    "letter_d": letter_d    
+    "letter_d": letter_d,
+    "correct_answer": correct_answer 
     
 }
 
