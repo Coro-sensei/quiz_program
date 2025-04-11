@@ -9,7 +9,7 @@ while True:
 
     question_input = input("Enter your question: (Type exit if you wish to exit:)")
 
-    question_bank.append(question_input)
+
     if question_input.lower() == "exit":    
         print("Ending program.")
         break # Stops the asking of questions
@@ -35,4 +35,4 @@ question_data_bank = {
     "correct_answer": correct_answer 
     
 }
-
+question_bank.append(question_input)
