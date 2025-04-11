@@ -14,4 +14,10 @@ while True:
         print("Ending program.")
         break # Stops the asking of questions
 
+# Asks for the option to be put as a possible answer 
+    letter_a = input("Enter for option A")
+    letter_b = input("Enter for option B")
+    letter_c = input("Enter for option C")
+    letter_d = input("Enter for option D")
+
 
