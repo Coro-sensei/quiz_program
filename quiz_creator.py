@@ -22,7 +22,8 @@ while True:
 
 # Get the correct answer from the possible answers
 correct_answer = input("Enter the correct answer: ").lower()
-while correct_answer not in []
+while correct_answer not in ['a', 'b', 'c', 'd']:
+    correct_answer = input("Enter the correct answer: ")
 
 # Create a dictionary for the possible answers
 question_data_bank = {
