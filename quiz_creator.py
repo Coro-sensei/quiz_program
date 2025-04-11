@@ -3,10 +3,12 @@
 # Write the collected data to a text file. 
 # Ask another question until the user chose to exit
 
+question_bank = []
 # Ask the user for a question until exit
 while True:
 
     question_input = input("Enter your question: (Type exit if you wish to exit:)")
+    question_bank.append(question_input)
     if question_input.lower() == "exit":
         print("Ending program.")
     break
