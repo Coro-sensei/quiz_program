@@ -21,6 +21,16 @@ while True:
     letter_d = input("Enter for option D: ")
 
 # Get the correct answer from the possible answers
-# Create a dictionary for the possible answers
+correct_answer = input("Enter the correct answer: ").lower()
+while correct_answer not in []
 
+# Create a dictionary for the possible answers
+question_data_bank = {
+    "question": question_input,
+    "letter_a": letter_a,
+    "letter_b": letter_b,
+    "letter_c": letter_c,
+    "letter_d": letter_d    
+    
+}
 
