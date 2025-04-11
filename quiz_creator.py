@@ -15,9 +15,12 @@ while True:
         break # Stops the asking of questions
 
 # Asks for the option to be put as a possible answer 
-    letter_a = input("Enter for option A")
-    letter_b = input("Enter for option B")
-    letter_c = input("Enter for option C")
-    letter_d = input("Enter for option D")
+    letter_a = input("Enter for option A: ")
+    letter_b = input("Enter for option B: ")
+    letter_c = input("Enter for option C: ")
+    letter_d = input("Enter for option D: ")
+
+# Get the correct answer from the possible answers
+# Create a dictionary for the possible answers
 
 
