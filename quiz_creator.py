@@ -11,5 +11,5 @@ while True:
     question_bank.append(question_input)
     if question_input.lower() == "exit":
         print("Ending program.")
-    break
+        break
 
