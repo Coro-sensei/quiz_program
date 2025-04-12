@@ -3,6 +3,9 @@
 # Write the collected data to a text file. Ask another question until the user chose to exit.
 
 # Make the GUI 
+import tkinter as tk 
+from tkinter import messagebox
+
 # Do the code for the quiz maker itself 
 # Input questions
 # Input 4 possible answers 
