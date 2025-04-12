@@ -15,6 +15,9 @@ window_root.title("Quiz Maker")
 window_width = 800
 window_height = 800
 
+# Get screen dimensions 
+screen_window_width = window_root.winfo_screenwidth()
+screen_window_height = window_root.winfo_screenheight()
 # Do the code for the quiz maker itself 
 # Input questions
 # Input 4 possible answers 
