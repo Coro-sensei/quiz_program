@@ -3,8 +3,13 @@
 # Write the collected data to a text file. Ask another question until the user chose to exit.
 
 # Make the GUI 
-import tkinter as tk 
+
+import tkinter as tk  # The library used 
 from tkinter import messagebox
+
+# Main window of the GUI
+window_root = tk.Tk()
+window_root.title("Quiz Maker")
 
 # Do the code for the quiz maker itself 
 # Input questions
