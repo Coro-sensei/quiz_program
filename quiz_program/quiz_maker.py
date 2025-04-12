@@ -23,6 +23,8 @@ screen_window_height = window_root.winfo_screenheight()
 x = (screen_window_width // 2) - (window_width // 2)
 y = (screen_window_height // 2) - (window_height // 2)
 
+# Set the center for the window
+window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # Do the code for the quiz maker itself 
 # Input questions
