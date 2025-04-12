@@ -11,6 +11,10 @@ from tkinter import messagebox
 window_root = tk.Tk()
 window_root.title("Quiz Maker")
 
+# Set the window dimensions
+window_width = 800
+window_height = 800
+
 # Do the code for the quiz maker itself 
 # Input questions
 # Input 4 possible answers 
