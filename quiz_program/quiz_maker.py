@@ -18,6 +18,12 @@ window_height = 800
 # Get screen dimensions 
 screen_window_width = window_root.winfo_screenwidth()
 screen_window_height = window_root.winfo_screenheight()
+
+# Get the x and y for the window to be centered
+x = (screen_window_width // 2) - (window_width // 2)
+y = (screen_window_height // 2) - (window_height // 2)
+
+
 # Do the code for the quiz maker itself 
 # Input questions
 # Input 4 possible answers 
