@@ -28,6 +28,8 @@ window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # Do the code for the quiz maker itself 
 # Input questions
+question_label = tk.Label(window_root, text = "Enter your question")
+
 # Input 4 possible answers 
 # Input the correct answer 
 # Write the data to a text file
