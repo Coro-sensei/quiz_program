@@ -12,7 +12,7 @@ window_root = tk.Tk()
 window_root.title("Quiz Maker")
 
 # Set the window dimensions
-window_width = 800
+window_width = 1800
 window_height = 800
 
 # Get screen dimensions 
@@ -30,12 +30,17 @@ window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 label_font = ("Georgia", 16)
 entry_font = ("Georgia", 14)
 
+# Central frame to hold the widgets
+central_frame =  tk.Frame(window_root)
+central_frame.grid(row = 0, column = 0)
+
 # Do the code for the quiz maker itself 
 # Input questions
 question_label = tk.Label(window_root, text = "Enter your question: ", font = label_font)
 question_label.grid(row = 0, column = 0, sticky = "w")
 question_entry = tk.Entry(window_root, width = 100, font = entry_font)
 question_entry.grid(row = 0, column = 1)
+
 
 # Input 4 possible answers 
 # Input the correct answer 
