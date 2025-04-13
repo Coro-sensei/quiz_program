@@ -32,9 +32,9 @@ entry_font = ("Georgia", 14)
 
 # Do the code for the quiz maker itself 
 # Input questions
-question_label = tk.Label(window_root, text = "Enter your question: ")
+question_label = tk.Label(window_root, text = "Enter your question: ", font = label_font)
 question_label.grid(row = 0, column = 0, sticky = "w")
-question_entry = tk.Entry(window_root, width = 100)
+question_entry = tk.Entry(window_root, width = 100, font = entry_font)
 question_entry.grid(row = 0, column = 1)
 
 # Input 4 possible answers 
