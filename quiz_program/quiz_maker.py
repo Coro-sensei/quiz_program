@@ -26,6 +26,10 @@ y = (screen_window_height // 2) - (window_height // 2)
 # Set the center for the window
 window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
+# Font style 
+label_font = ("Georgia", 16)
+entry_font = ("Georgia", 14)
+
 # Do the code for the quiz maker itself 
 # Input questions
 question_label = tk.Label(window_root, text = "Enter your question: ")
