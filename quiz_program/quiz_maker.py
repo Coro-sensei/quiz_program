@@ -13,8 +13,11 @@ window_root = tk.Tk()
 window_root.title("Quiz Maker")
 
 # Set the window dimensions
-window_width = 1500
+window_width = 1600
 window_height = 800
+
+# Lock the window disable the resize
+window_root.resizable(False, False)
 
 # Get screen dimensions 
 screen_window_width = window_root.winfo_screenwidth()
@@ -30,7 +33,7 @@ window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 # The background
 try:
     backdrop_image = Image.open("Screenshot (2).png")
-    backdrop_image = backdrop_image.resize((window_width, window_height))
+    backdrop_image = backdrop_image.resize(window_width, window_height)
     window_root.bg_photo = ImageTk.PhotoImage(backdrop_image)
 
 except Exception as e:
