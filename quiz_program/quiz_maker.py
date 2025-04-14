@@ -81,6 +81,10 @@ def submit_question():
     d = opt_d_entry.get()
     correct = correct_answer_entry.get().lower() 
 
+    if correct not in ['a', 'b', 'c', 'd']:
+        messagebox.showerror("Invalid data", "Please put the correct answer that is within the options submitted")
+        return
+
 # Write the data to a text file
 # Run the app
 window_root.mainloop()
