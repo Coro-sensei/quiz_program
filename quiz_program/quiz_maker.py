@@ -100,12 +100,13 @@ def submit_question():
     messagebox.showinfo("Success", "Question is saved in a text file.")
 
 # Delete the all the entry
-    question_entry.delete
-    opt_a_entry.delete
-    opt_b_entry.delete
-    opt_c_entry.delete
-    opt_d_entry.delete
-    correct_answer_entry.delete
+    question_entry.delete(0, tk.END)
+    opt_a_entry.delete(0, tk.END)
+    opt_b_entry.delete(0, tk.END)
+    opt_c_entry.delete(0, tk.END)
+    opt_d_entry.delete(0, tk.END)
+    correct_answer_entry.delete(0, tk.END)
+    
 # Submit button for the def function to work
 submit_button = tk.Button(central_frame, text = "Submit", font = button_font, command = submit_question)
 submit_button.grid(row = 6, column = 1, sticky = "e")
