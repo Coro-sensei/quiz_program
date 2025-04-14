@@ -37,6 +37,11 @@ except Exception as e:
     messagebox.showerror("error image.")
     window_root.bg_photo = None
 
+if window_root.bg_photo:
+    backdrop_label = tk.Label(window_root, image = window_root.bg_photo)
+    backdrop_label.place(x = 0, y = 0, width = window_width, height = window_height)
+else:
+    window_root.configure(bg = "lightblue")
 # Font style 
 label_font = ("Georgia", 16)
 entry_font = ("Georgia", 14)
