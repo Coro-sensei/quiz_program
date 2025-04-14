@@ -62,7 +62,7 @@ try:
     title_image = ImageTk.PhotoImage(title_label)
 
     # Position of the title label
-    title_pos = tk.Label(window_root, image = title_image, bg = "yellow")
+    title_pos = tk.Label(window_root, image = title_image, bg = "lightyellow")
     title_pos.image = title_image
 
     title_pos_y = (window_height // 2) - 200
