@@ -100,6 +100,8 @@ def submit_question():
     messagebox.showinfo("Success", "Question is saved in a text file.")
 
 # Submit button for the def function to work
-submit_button = tk.Button(central_frame, text = "Submit", font = )
+submit_button = tk.Button(central_frame, text = "Submit", font = button_font, command = submit_question)
+submit_button.grid(row = 6, column = 1, sticky = "e")
+
 # Run the app
 window_root.mainloop()
