@@ -119,6 +119,8 @@ def clear_entry():
     opt_c_entry.delete(0, tk.END)
     opt_d_entry.delete(0, tk.END)
     correct_answer_entry.delete(0, tk.END)
+clear_button = tk.Button(central_frame, text = "Clear all entry", font = button_font, command = clear_entry)
+clear_button.grid(row = 6, column = 0, sticky = "w")
     
 
 # Run the app
