@@ -11,7 +11,7 @@ window_root = tk.Tk()
 window_root.title("Quiz Maker")
 
 # Set the window dimensions
-window_width = 1800
+window_width = 1500
 window_height = 800
 
 # Get screen dimensions 
@@ -121,7 +121,6 @@ def clear_entry():
     correct_answer_entry.delete(0, tk.END)
 clear_button = tk.Button(central_frame, text = "Clear all entry", font = button_font, command = clear_entry)
 clear_button.grid(row = 6, column = 0, sticky = "e")
-    
 
 # Run the app
 window_root.mainloop()
