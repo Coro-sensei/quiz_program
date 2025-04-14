@@ -35,7 +35,11 @@ button_font =("Georgia", 16, "bold")
 
 # Central frame to hold the widgets
 central_frame =  tk.Frame(window_root, bg = "lightblue", width = window_width, height = window_height)
-central_frame.place(x = 0, y = 0, relwidth = window_width, relheight = window_height )
+central_frame.place(x = 0, y = 0, relwidth = window_width, relheight = window_height)
+
+# Center the contents 
+central_frame.grid_columnconfigure(0, weight = 1)
+
 
 # Do the code for the quiz maker itself 
 # Input questions
