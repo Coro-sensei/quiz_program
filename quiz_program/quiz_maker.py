@@ -113,6 +113,12 @@ submit_button.grid(row = 6, column = 1, sticky = "e")
 
 # Delete button using def function
 def clear_entry():
+    question_entry.delete(0, tk.END)
+    opt_a_entry.delete(0, tk.END)
+    opt_b_entry.delete(0, tk.END)
+    opt_c_entry.delete(0, tk.END)
+    opt_d_entry.delete(0, tk.END)
+    correct_answer_entry.delete(0, tk.END)
     
 
 # Run the app
