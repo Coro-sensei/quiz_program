@@ -73,8 +73,6 @@ correct_answer_entry = tk.Entry(central_frame, width = 10, font = entry_font)
 correct_answer_entry.grid(row = 5, column = 1, sticky = "w") 
 
 
-
-# Input the correct answer 
 # Write the data to a text file
 # Run the app
 window_root.mainloop()
