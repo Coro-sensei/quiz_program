@@ -66,6 +66,13 @@ opt_d_label.grid(row = 4, column = 0, sticky = "e")
 opt_d_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 opt_d_entry.grid(row = 4, column = 1)
 
+# The correct answer
+correct_answer_label = tk.Label(central_frame, text = "Correct answer (a/b/c/d): ", font = label_font)
+correct_answer_label.grid(row = 5, column = 0, sticky = "e")
+correct_answer_entry = tk.Entry(central_frame, width = 10, font = entry_font)
+correct_answer_entry.grid(row = 5, column = 1, sticky = "w") 
+
+
 
 # Input the correct answer 
 # Write the data to a text file
