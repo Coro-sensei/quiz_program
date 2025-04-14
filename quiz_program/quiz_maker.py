@@ -47,6 +47,13 @@ opt_a_label = tk.Label(central_frame, text = "Option A:", font = label_font)
 opt_a_label.grid(row = 1, column = 0, sticky = "e")
 opt_a_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 opt_a_entry.grid(row = 1, column = 1)
+
+# For Option B 
+opt_b_label = tk.Label(central_frame, text = "Option B:", font = label_font)
+opt_b_label.grid(row = 2, column = 0, sticky = "e")
+opt_b_entry = tk.Entry(central_frame, width = 80, font = entry_font)
+opt_b_entry.grid(row = 2, column = 1)
+
 # Input the correct answer 
 # Write the data to a text file
 # Run the app
