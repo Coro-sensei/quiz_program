@@ -182,6 +182,8 @@ def submit_question():
         file.write(f"c) {c}\n")
         file.write(f"d) {d}\n")
         file.write(f"The correct answer: {correct}\n")
+        file.write("-" * 40 + "\n")
+
 
 # Run the app
 window_root.mainloop()
