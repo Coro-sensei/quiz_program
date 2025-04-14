@@ -61,6 +61,13 @@ try:
     title_label = title_label.resize((600, 150), Image.LANCZOS) # Image filter and resize 
     title_image = ImageTk.PhotoImage(title_label)
 
+    # Position of the title label
+    title_pos = tk.Label(window_root, image = title_image)
+    title_pos.image = title_image
+
+    title_pos_y = (window_height // 2) - 200
+    title_pos.place(relx = 0.5, rely = 0.3, anchor = "center", y = -title_pos_y)
+    
 except:
 
     
