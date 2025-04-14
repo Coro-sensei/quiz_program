@@ -5,6 +5,7 @@
 # Make the GUI 
 import tkinter as tk  # The library used 
 from tkinter import messagebox
+from PIL import Image, ImageTk
 
 # Main window of the GUI
 window_root = tk.Tk()
