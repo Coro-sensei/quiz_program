@@ -183,7 +183,8 @@ def submit_question():
         file.write(f"d) {d}\n")
         file.write(f"The correct answer: {correct}\n")
         file.write("-" * 40 + "\n")
-
+    messagebox.showinfo("Success", "Question is saved in a text file.")
+    
 
 # Run the app
 window_root.mainloop()
