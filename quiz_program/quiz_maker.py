@@ -66,10 +66,12 @@ try:
     title_pos.image = title_image
 
     title_pos_y = (window_height // 2) - 200
-    title_pos.place(relx = 0.5, rely = 0.3, anchor = "center", y = -title_pos_y)
+    title_pos.place(relx = 0.5, rely = 0.5, anchor = "center", y = -title_pos_y)
     
 except Exception as e: # This is if the image suddenly does load
     title_label_2 = tk.Label(window_root, text = "Pokemon Quiz Maker", font = tkFont.Font(family = "Pokemon Hollow"), bg = "yellow")
+    title_label_2.place(relx = 0.5, rely = 0.3, anchor = "center")
+    messagebox.showerror("Title image error")
 
 
     
