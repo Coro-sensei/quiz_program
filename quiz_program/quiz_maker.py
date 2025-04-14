@@ -45,7 +45,6 @@ if window_root.bg_photo:
     backdrop_label.place(x = 0, y = 0, width = window_width, height = window_height)
 else:
     window_root.configure(bg = "yellow")
-# Title of image of the program
 
 # Font style 
 label_font = tkFont.Font(family = "ArcadeClassic", size = 16)
@@ -56,6 +55,11 @@ button_font = tkFont.Font(family ="ArcadeClassic", size = 16, weight = "bold")
 central_frame =  tk.Frame(window_root, bg = "yellow", width = window_width, height = window_height)
 central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 
+# Title label image 
+try:
+    title_label = Image.open("pokeball_title.png")
+except:
+    
 # Center the contents 
 central_frame.grid_columnconfigure(0, weight = 1)
 central_frame.grid_columnconfigure(1, weight = 1)
