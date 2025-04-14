@@ -32,7 +32,7 @@ window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # The background
 try:
-    backdrop_image = Image.open("pokeball_bg.jpg")
+    backdrop_image = Image.open("pokeball_bg.jpeg")
     backdrop_image = backdrop_image.resize((window_width, window_height))
     window_root.bg_photo = ImageTk.PhotoImage(backdrop_image)
 
