@@ -176,8 +176,12 @@ def submit_question():
 
 # Write the data to a text file
     with open("quiz_maker_dat.txt", "a") as file:
-        file.write(f"Question: {question}")
-        
+        file.write(f"Question: {question}\n")
+        file.write(f"a) {a}\n")
+        file.write(f"b) {b}\n")
+        file.write(f"c) {c}\n")
+        file.write(f"d) {d}\n")
+        file.write(f"The correct answer: {correct}\n")
 
 # Run the app
 window_root.mainloop()
