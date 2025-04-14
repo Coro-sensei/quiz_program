@@ -58,7 +58,11 @@ central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 # Title label image 
 try:
     title_label = Image.open("pokeball_title.png")
+    title_label = title_label.resize((600, 150), Image.LANCZOS) # Image filter and resize 
+    title_image = ImageTk.PhotoImage(title_label)
+
 except:
+
     
 # Center the contents 
 central_frame.grid_columnconfigure(0, weight = 1)
