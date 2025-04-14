@@ -28,7 +28,8 @@ y = (screen_window_height // 2) - (window_height // 2)
 window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # The background
-backdrop = ImageTk.PhotoImage(Image.open("background.png"))
+window_root.configure(bg ="lightblue")
+
 # Font style 
 label_font = ("Georgia", 16)
 entry_font = ("Georgia", 14)
