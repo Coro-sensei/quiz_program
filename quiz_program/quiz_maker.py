@@ -28,6 +28,7 @@ window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 # Font style 
 label_font = ("Georgia", 16)
 entry_font = ("Georgia", 14)
+button_font =("Georgia", 16, "bold")
 
 # Central frame to hold the widgets
 central_frame =  tk.Frame(window_root)
