@@ -28,7 +28,9 @@ y = (screen_window_height // 2) - (window_height // 2)
 window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # The background
-window_root.configure(bg ="lightblue")
+try:
+    backdrop_image = Image.open()
+except Exception as e:
 
 # Font style 
 label_font = ("Georgia", 16)
