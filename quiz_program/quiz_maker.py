@@ -26,49 +26,51 @@ y = (screen_window_height // 2) - (window_height // 2)
 # Set the center for the window
 window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
+# The background
+
 # Font style 
 label_font = ("Georgia", 16)
 entry_font = ("Georgia", 14)
 button_font =("Georgia", 16, "bold")
 
 # Central frame to hold the widgets
-central_frame =  tk.Frame(window_root)
-central_frame.grid(row = 0, column = 0)
+central_frame =  tk.Frame(window_root, bg = "lightblue", width = window_width, height = window_height)
+central_frame.place(x = 0, y = 0)
 
 # Do the code for the quiz maker itself 
 # Input questions
-question_label = tk.Label(central_frame, text = "Enter your question: ", font = label_font)
+question_label = tk.Label(central_frame, text = "Enter your question: ", font = label_font, bg = "lightblue")
 question_label.grid(row = 0, column = 0, sticky = "e")
 question_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 question_entry.grid(row = 0, column = 1)
 
 # Input 4 possible answers 
 # For option A
-opt_a_label = tk.Label(central_frame, text = "Option A:", font = label_font)
+opt_a_label = tk.Label(central_frame, text = "Option A:", font = label_font, bg = "lightblue")
 opt_a_label.grid(row = 1, column = 0, sticky = "e")
 opt_a_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 opt_a_entry.grid(row = 1, column = 1)
 
 # For Option B 
-opt_b_label = tk.Label(central_frame, text = "Option B:", font = label_font)
+opt_b_label = tk.Label(central_frame, text = "Option B:", font = label_font, bg = "lightblue")
 opt_b_label.grid(row = 2, column = 0, sticky = "e")
 opt_b_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 opt_b_entry.grid(row = 2, column = 1)
 
 # For Option C
-opt_c_label = tk.Label(central_frame, text = "Option C:", font = label_font)
+opt_c_label = tk.Label(central_frame, text = "Option C:", font = label_font, bg = "lightblue")
 opt_c_label.grid(row = 3, column = 0, sticky = "e")
 opt_c_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 opt_c_entry.grid(row = 3, column = 1)
 
 # For Option D
-opt_d_label = tk.Label(central_frame, text = "Option D:", font = label_font)
+opt_d_label = tk.Label(central_frame, text = "Option D:", font = label_font, bg = "lightblue")
 opt_d_label.grid(row = 4, column = 0, sticky = "e")
 opt_d_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 opt_d_entry.grid(row = 4, column = 1)
 
 # The correct answer
-correct_answer_label = tk.Label(central_frame, text = "Correct answer (a/b/c/d): ", font = label_font)
+correct_answer_label = tk.Label(central_frame, text = "Correct answer (a/b/c/d): ", font = label_font, bg = "lightblue")
 correct_answer_label.grid(row = 5, column = 0, sticky = "e")
 correct_answer_entry = tk.Entry(central_frame, width = 10, font = entry_font)
 correct_answer_entry.grid(row = 5, column = 1, sticky = "w") 
