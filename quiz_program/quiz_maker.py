@@ -7,7 +7,6 @@ import tkinter as tk  # The library used
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.font as tkFont
-from tkinter.font import Font
 
 # Main window of the GUI
 window_root = tk.Tk()
