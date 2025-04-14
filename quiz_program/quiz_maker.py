@@ -45,6 +45,7 @@ if window_root.bg_photo:
     backdrop_label.place(x = 0, y = 0, width = window_width, height = window_height)
 else:
     window_root.configure(bg = "yellow")
+# Title of image of the program
 
 # Font style 
 label_font = tkFont.Font(family = "ArcadeClassic", size = 16)
