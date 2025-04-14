@@ -41,13 +41,8 @@ central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 central_frame.grid_columnconfigure(0, weight = 1)
 central_frame.grid_columnconfigure(1, weight = 1)
 
-# Inner frame for the labels and entries
-form_frame = tk.Frame(central_frame, bg = "lightblue")
-form_frame.grid(row = 0, column = 1)
-
-
 # Do the code for the quiz maker itself 
-# Input questions
+# Input questions   
 question_label = tk.Label(central_frame, text = "Enter your question: ", font = label_font, bg = "lightblue")
 question_label.grid(row = 0, column = 0, sticky = "e")
 question_entry = tk.Entry(central_frame, width = 80, font = entry_font)
