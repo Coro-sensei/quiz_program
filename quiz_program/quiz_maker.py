@@ -47,9 +47,9 @@ else:
     window_root.configure(bg = "yellow")
 
 # Font style 
-label_font = ("Georgia", 16)
-entry_font = ("Georgia", 14)
-button_font =("Georgia", 16, "bold")
+label_font = tkFont.Font(family = "ArcadeClassic", size = 16)
+entry_font = tkFont.Font(family ="ArcadeClassic", size = 14)
+button_font =tkFont.Font(family ="ArcadeClassic", size = 16, weight = "bold")
 
 # Central frame to hold the widgets
 central_frame =  tk.Frame(window_root, bg = "yellow", width = window_width, height = window_height)
