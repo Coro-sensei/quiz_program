@@ -60,6 +60,12 @@ opt_c_label.grid(row = 3, column = 0, sticky = "e")
 opt_c_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 opt_c_entry.grid(row = 3, column = 1)
 
+# For Option D
+opt_d_label = tk.Label(central_frame, text = "Option D:", font = label_font)
+opt_d_label.grid(row = 4, column = 0, sticky = "e")
+opt_d_entry = tk.Entry(central_frame, width = 80, font = entry_font)
+opt_d_entry.grid(row = 4, column = 1)
+
 
 # Input the correct answer 
 # Write the data to a text file
