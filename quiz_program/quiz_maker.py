@@ -50,14 +50,10 @@ else:
 label_font = tkFont.Font(family = "ArcadeClassic", size = 16)
 entry_font = tkFont.Font(family ="ArcadeClassic", size = 14)
 button_font = tkFont.Font(family ="ArcadeClassic", size = 16, weight = "bold")
-title_font = tkFont.Font(family = "Pokemon Solid", size = 40, weight = "bold")
 
 # Central frame to hold the widgets
 central_frame =  tk.Frame(window_root, bg = "yellow", width = window_width, height = window_height)
 central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
-
-# The label name of the application above the central frame
-title_label = tk.Label(window_root, text = "Pokemon Quiz Maker"), 
 
 # Center the contents 
 central_frame.grid_columnconfigure(0, weight = 1)
