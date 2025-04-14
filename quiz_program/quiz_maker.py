@@ -36,13 +36,17 @@ central_frame.grid(row = 0, column = 0)
 
 # Do the code for the quiz maker itself 
 # Input questions
-question_label = tk.Label(window_root, text = "Enter your question: ", font = label_font)
+question_label = tk.Label(central_frame, text = "Enter your question: ", font = label_font)
 question_label.grid(row = 0, column = 0, sticky = "w")
-question_entry = tk.Entry(window_root, width = 100, font = entry_font)
+question_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 question_entry.grid(row = 0, column = 1)
 
-
 # Input 4 possible answers 
+# For option A
+opt_a_label = tk.Label(central_frame, text = "Option A:", font = label_font)
+opt_a_label.grid(row = 1, column = 0, sticky = "e")
+opt_a_entry = tk.Entry(central_frame, width = 80, font = entry_font)
+opt_a_entry.grid(row = 1, column = 1)
 # Input the correct answer 
 # Write the data to a text file
 # Run the app
