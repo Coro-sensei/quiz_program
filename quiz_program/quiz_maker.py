@@ -29,8 +29,13 @@ window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # The background
 try:
-    backdrop_image = Image.open()
+    backdrop_image = Image.open("Screenshot (2).png")
+    backdrop_image = backdrop_image.resize((window_width, window_height))
+    window_root.bg_photo = ImageTk.PhotoImage(backdrop_image)
+
 except Exception as e:
+    messagebox.showerror("error image.")
+    window_root.bg_photo = None
 
 # Font style 
 label_font = ("Georgia", 16)
