@@ -68,7 +68,9 @@ try:
     title_pos_y = (window_height // 2) - 200
     title_pos.place(relx = 0.5, rely = 0.3, anchor = "center", y = -title_pos_y)
     
-except:
+except Exception as e: # This is if the image suddenly does load
+    title_label_2 = tk.Label(window_root, text = "Pokemon Quiz Maker", font = tkFont.Font(family = "Pokemon Hollow"), bg = "yellow")
+
 
     
 # Center the contents 
