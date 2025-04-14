@@ -10,7 +10,7 @@ import tkinter.font as tkFont
 
 # Main window of the GUI
 window_root = tk.Tk()
-window_root.title("Quiz Maker")
+window_root.title("Pokemon Quiz Maker")
 
 # Set the window dimensions
 window_width = 1600
