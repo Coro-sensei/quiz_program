@@ -89,7 +89,7 @@ def submit_question():
         return
 
 # Write the data to a text file
-    with open("quiz_maker_dat.txt", "a") as file:
+    with open("quiz_maker_data.txt", "a") as file:
         file.write(f"Question: {question}\n")
         file.write(f"a) {a}\n")
         file.write(f"b) {b}\n")
