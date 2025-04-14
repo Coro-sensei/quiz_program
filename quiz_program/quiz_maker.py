@@ -37,7 +37,7 @@ central_frame.grid(row = 0, column = 0)
 # Do the code for the quiz maker itself 
 # Input questions
 question_label = tk.Label(central_frame, text = "Enter your question: ", font = label_font)
-question_label.grid(row = 0, column = 0, sticky = "w")
+question_label.grid(row = 0, column = 0, sticky = "e")
 question_entry = tk.Entry(central_frame, width = 80, font = entry_font)
 question_entry.grid(row = 0, column = 1)
 
