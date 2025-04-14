@@ -84,7 +84,10 @@ def submit_question():
     if correct not in ['a', 'b', 'c', 'd']:
         messagebox.showerror("Invalid data", "Please put the correct answer that is within the options submitted")
         return
-
-# Write the data to a text file
+    if not all ([question, a, b, c, d]):
+        messagebox.showerror("Missing inputs, please fill all the entry boxes")
+        return
+    
+  
 # Run the app
 window_root.mainloop()
