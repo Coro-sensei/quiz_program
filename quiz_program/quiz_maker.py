@@ -39,45 +39,46 @@ central_frame.place(x = 0, y = 0, relwidth = window_width, relheight = window_he
 
 # Center the contents 
 central_frame.grid_columnconfigure(0, weight = 1)
-
+central_frame.grid_columnconfigure(1, weight = 2)
+central_frame.grid_columnconfigure(2, weight = 1)
 
 # Do the code for the quiz maker itself 
 # Input questions
 question_label = tk.Label(central_frame, text = "Enter your question: ", font = label_font, bg = "lightblue")
-question_label.grid(row = 0, column = 0, sticky = "e")
+question_label.grid(row = 0, column = 1, sticky = "e")
 question_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-question_entry.grid(row = 0, column = 1)
+question_entry.grid(row = 0, column = 2)
 
 # Input 4 possible answers 
 # For option A
 opt_a_label = tk.Label(central_frame, text = "Option A:", font = label_font, bg = "lightblue")
-opt_a_label.grid(row = 1, column = 0, sticky = "e")
+opt_a_label.grid(row = 1, column = 1, sticky = "e")
 opt_a_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_a_entry.grid(row = 1, column = 1)
+opt_a_entry.grid(row = 1, column = 2)
 
 # For Option B 
 opt_b_label = tk.Label(central_frame, text = "Option B:", font = label_font, bg = "lightblue")
-opt_b_label.grid(row = 2, column = 0, sticky = "e")
+opt_b_label.grid(row = 2, column = 1, sticky = "e")
 opt_b_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_b_entry.grid(row = 2, column = 1)
+opt_b_entry.grid(row = 2, column = 2)
 
 # For Option C
 opt_c_label = tk.Label(central_frame, text = "Option C:", font = label_font, bg = "lightblue")
-opt_c_label.grid(row = 3, column = 0, sticky = "e")
+opt_c_label.grid(row = 3, column = 1, sticky = "e")
 opt_c_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_c_entry.grid(row = 3, column = 1)
+opt_c_entry.grid(row = 3, column = 2)
 
 # For Option D
 opt_d_label = tk.Label(central_frame, text = "Option D:", font = label_font, bg = "lightblue")
-opt_d_label.grid(row = 4, column = 0, sticky = "e")
+opt_d_label.grid(row = 4, column = 1, sticky = "e")
 opt_d_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_d_entry.grid(row = 4, column = 1)
+opt_d_entry.grid(row = 4, column = 2)
 
 # The correct answer
 correct_answer_label = tk.Label(central_frame, text = "Correct answer (a/b/c/d): ", font = label_font, bg = "lightblue")
-correct_answer_label.grid(row = 5, column = 0, sticky = "e")
+correct_answer_label.grid(row = 5, column = 1, sticky = "e")
 correct_answer_entry = tk.Entry(central_frame, width = 10, font = entry_font)
-correct_answer_entry.grid(row = 5, column = 1, sticky = "w") 
+correct_answer_entry.grid(row = 5, column = 2, sticky = "w") 
 
 # Submit the inputs 
 def submit_question():
@@ -116,7 +117,7 @@ def submit_question():
 
 # Submit button for the def function to work
 submit_button = tk.Button(central_frame, text = "Submit", font = button_font, command = submit_question)
-submit_button.grid(row = 6, column = 1, sticky = "e")
+submit_button.grid(row = 6, column = 2, sticky = "e")
 
 # Delete button using def function
 def clear_entry():
@@ -127,7 +128,7 @@ def clear_entry():
     opt_d_entry.delete(0, tk.END)
     correct_answer_entry.delete(0, tk.END)
 clear_button = tk.Button(central_frame, text = "Clear all entry", font = button_font, command = clear_entry)
-clear_button.grid(row = 6, column = 0, sticky = "e")
+clear_button.grid(row = 6, column = 1, sticky = "e")
 
 # Run the app
 window_root.mainloop()
