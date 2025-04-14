@@ -72,6 +72,14 @@ correct_answer_label.grid(row = 5, column = 0, sticky = "e")
 correct_answer_entry = tk.Entry(central_frame, width = 10, font = entry_font)
 correct_answer_entry.grid(row = 5, column = 1, sticky = "w") 
 
+# Submit the inputs 
+def submit_question():
+    question = question_entry.get()
+    a = opt_a_entry.get()
+    b = opt_b_entry.get()
+    c = opt_c_entry.get()
+    d = opt_d_entry.get()
+    correct = correct_answer_entry.get().lower() 
 
 # Write the data to a text file
 # Run the app
