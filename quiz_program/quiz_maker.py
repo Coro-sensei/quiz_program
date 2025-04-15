@@ -47,9 +47,9 @@ else:
     window_root.configure(bg = "yellow")
 
 # Font style 
-label_font = tkFont.Font(family = "ArcadeClassic", size = 16)
-entry_font = tkFont.Font(family ="ArcadeClassic", size = 14)
-button_font = tkFont.Font(family ="ArcadeClassic", size = 16, weight = "bold")
+label_font = tkFont.Font(family = "Kenney Mini Square", size = 16)
+entry_font = tkFont.Font(family ="Kenney Mini Square", size = 14)
+button_font = tkFont.Font(family ="Kenney Mini Square", size = 16, weight = "bold")
 
 # Central frame to hold the widgets
 central_frame =  tk.Frame(window_root, bg = "yellow", width = window_width, height = window_height)
@@ -58,7 +58,7 @@ central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 # Title label image 
 try:
     title_label = Image.open("pokeball_title.png")
-    title_label = title_label.resize((650, 250), Image.LANCZOS) # Image filter and resize 
+    title_label = title_label.resize((550, 250), Image.LANCZOS) # Image filter and resize 
     title_image = ImageTk.PhotoImage(title_label)
 
     # Position of the title label
@@ -66,7 +66,7 @@ try:
     title_pos.image = title_image
 
     title_pos_y = (window_height // 2) - 200
-    title_pos.place(relx = 0.5, rely = 0.43, anchor = "center", y = -title_pos_y)
+    title_pos.place(relx = 0.5, rely = 0.4, anchor = "center", y = -title_pos_y)
     
 except Exception as e: # This is if the image suddenly does load
     title_label_2 = tk.Label(window_root, text = "Pokemon Quiz Maker", font = tkFont.Font(family = "Pokemon Hollow"), bg = "yellow")
