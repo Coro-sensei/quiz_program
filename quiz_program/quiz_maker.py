@@ -118,26 +118,26 @@ correct_answer_entry.grid(row = 5, column = 1, sticky = "w")
 # Submit the inputs 
 def submit_question():
     question = question_entry.get()
-    a = opt_a_entry.get()
-    b = opt_b_entry.get()
-    c = opt_c_entry.get()
-    d = opt_d_entry.get()
+    letter_a = opt_a_entry.get()
+    letter_b = opt_b_entry.get()
+    letter_c = opt_c_entry.get()
+    letter_d = opt_d_entry.get()
     correct = correct_answer_entry.get().lower() 
 
-    if correct not in ['a', 'b', 'c', 'd']:
+    if correct not in ['letter_a', 'letter_b', 'letter_c', 'letter_d']:
         messagebox.showerror("Invalid data", "Please put the correct answer that is within the options submitted")
         return
-    if not all ([question, a, b, c, d]):
+    if not all ([question, letter_a, letter_b, letter_c, letter_d]):
         messagebox.showerror("Missing inputs, please fill all the entry boxes")
         return
 
 # Write the data to a text file
     with open("quiz_maker_data.txt", "a") as file:
         file.write(f"Question: {question}\n")
-        file.write(f"a) {a}\n")
-        file.write(f"b) {b}\n")
-        file.write(f"c) {c}\n")
-        file.write(f"d) {d}\n")
+        file.write(f"a) {letter_a}\n")
+        file.write(f"b) {letter_b}\n")
+        file.write(f"c) {letter_c}\n")
+        file.write(f"d) {letter_d}\n")
         file.write(f"The correct answer: {correct}\n")
         file.write("-" * 40 + "\n")
     messagebox.showinfo("Success", "Question is saved in a text file.")
