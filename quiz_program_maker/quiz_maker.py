@@ -59,7 +59,7 @@ central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 # Title label image 
 try:
     title_label = Image.open("pokeball_title.png")
-    title_label = title_label.resize((550, 250), Image.LANCZOS) # Image filter and resize 
+    title_label = title_label.resize((550, 250), Image.ANTIALIAS) # Image filter and resize 
     title_image = ImageTk.PhotoImage(title_label)
 
     # Position of the title label
