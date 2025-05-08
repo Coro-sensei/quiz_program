@@ -3,6 +3,7 @@
 # Write the collected data to a text file. Ask another question until the user chose to exit.
 
 # Make the GUI 
+import os
 import tkinter as tk  # The library used 
 from tkinter import messagebox
 from PIL import Image, ImageTk
