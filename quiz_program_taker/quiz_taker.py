@@ -109,7 +109,7 @@ for letter in ['a', 'b', 'c', 'd']:
     radio_buttons[letter] = rb
 
 # Score display
-status_label = tk.Label(frame, font = ("Arial", 16), bg = "yellow", fg = "lightyellow")
+status_label = tk.Label(frame, font = ("Arial", 16), bg = "yellow", fg = "black")
 status_label.pack(pady = 20)
 
 def show_question():
