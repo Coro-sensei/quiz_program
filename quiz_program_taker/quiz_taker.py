@@ -108,6 +108,8 @@ def load_question():
         for rad_but in radio_buttons.values():
             rad_but.pack_forget()
     submit_button.pack_forget()
+    status_label.config(text = f"Your score: {score}/{len(quiz_data)}")
+
 submit_button = tk.Button(frame, text = "Submit", font =("Arial", 16, "bold"))
 submit_button.pack(anchor = "e")
 
