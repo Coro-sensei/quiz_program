@@ -28,22 +28,27 @@ if os.path.exists("quiz_maker_data.txt"):
     with open("quiz_maker_data.txt", "r") as f:
         blocks = f.read().strip().split("-" * 40)
         for blocks in blocks:
-            lines = blocks.strip().split("\n")
-            if len(lines) < 6:
+            lines = [line.strip() for line in blocks.strip().split("\n") if line.strip()]
+            if len(lines) < 6 or not lines[0].startswith("Question:"):
                 continue
-
-        question_lines = lines[0][len("Question: ")].strip()
-
-        options = {
-            "letter_a": lines[1][4:].strip(),
-            "letter_b": lines[2][4:].strip(),
-            "letter_c": lines[3][4:].strip(),
-            "letter_d": lines[4][4:].strip(),
         
-        }
+        if len(lines) >= 6:
+            
+            question_lines = lines[1][len("Question: ")].strip()
 
-        correct = lines[5].split(":")[-1].strip().lower()
-        quiz_data.append((question_lines,options,correct))
+            options = {
+                "letter_a": lines[1][4:].strip(),
+                "letter_b": lines[2][4:].strip(),
+                "letter_c": lines[3][4:].strip(),
+                "letter_d": lines[4][4:].strip(),
+            
+            }
+            correct = lines[5].split(":")[-1].strip().lower()
+        
+            if correct in options:
+                quiz_data.append((question_lines, options, correct))
+            else: 
+                print(f"Skipping block: Correct answer '{correct}' not in options.")
 
 else:
     messagebox.showerror("Quiz data not found, Run the quiz maker first to make the quiz data.")
