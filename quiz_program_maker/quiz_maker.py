@@ -37,7 +37,7 @@ def load_image(path, size = None):
         return None
 
 # Background with error handling
-bg_photo = load_image("pokeball_bg.jpeg", (window_width, window_height))
+bg_photo = load_image("pokeball_bg.png", (window_width, window_height))
 if bg_photo:
     tk.Label(window_root, image = bg_photo).place(x=0, y=0)
 else:
@@ -58,7 +58,7 @@ central_frame = tk.Frame(window_root, bg = "yellow")
 central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 
 # Title image with better error handling
-title_image = load_image("pokeball_title.png", (550, 250))
+title_image = load_image("pokeball_title.jpeg", (550, 250))
 if title_image:
     title_label = tk.Label(window_root, image = title_image, bg = "yellow")
     title_label.place(relx = 0.5, rely = 0.2, anchor = "center")
