@@ -26,7 +26,7 @@ y = (screen_height - window_height) // 2
 window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
 # Image handling improvements
-def load_image(path, size=None):
+def load_image(path, size = None):
     try:
         image = Image.open(path)
         if size:
@@ -39,41 +39,41 @@ def load_image(path, size=None):
 # Background with error handling
 bg_photo = load_image("pokeball_bg.jpeg", (window_width, window_height))
 if bg_photo:
-    tk.Label(window_root, image=bg_photo).place(x=0, y=0)
+    tk.Label(window_root, image = bg_photo).place(x=0, y=0)
 else:
     window_root.config(bg="yellow")
 
 # Font handling with fallbacks
 try:
-    label_font = tkFont.Font(family="Kenney Mini Square", size=16)
-    entry_font = tkFont.Font(family="Kenney Mini Square", size=14)
-    button_font = tkFont.Font(family="Kenney Mini Square", size=16, weight="bold")
+    label_font = tkFont.Font(family = "Kenney Mini Square", size = 16)
+    entry_font = tkFont.Font(family = "Kenney Mini Square", size = 14)
+    button_font = tkFont.Font(family = "Kenney Mini Square", size = 16, weight = "bold")
 except:
-    label_font = tkFont.Font(size=16)
-    entry_font = tkFont.Font(size=14)
-    button_font = tkFont.Font(size=16, weight="bold")
+    label_font = tkFont.Font(size = 16)
+    entry_font = tkFont.Font(size = 14)
+    button_font = tkFont.Font(size = 16, weight = "bold")
 
 # Central frame
-central_frame = tk.Frame(window_root, bg="yellow")
-central_frame.place(relx=0.5, rely=0.5, anchor="center")
+central_frame = tk.Frame(window_root, bg = "yellow")
+central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 
 # Title image with better error handling
 title_image = load_image("pokeball_title.png", (550, 250))
 if title_image:
-    title_label = tk.Label(window_root, image=title_image, bg="yellow")
-    title_label.place(relx=0.5, rely=0.2, anchor="center")
+    title_label = tk.Label(window_root, image = title_image, bg = "yellow")
+    title_label.place(relx = 0.5, rely = 0.2, anchor = "center")
 else:
-    title_label = tk.Label(window_root, text="Pokemon Quiz Maker", 
-                        font=("Arial", 24, "bold"), bg="yellow")
-    title_label.place(relx=0.5, rely=0.2, anchor="center")
+    title_label = tk.Label(window_root, text = "Pokemon Quiz Maker", 
+                        font = ("Arial", 24, "bold"), bg = "yellow")
+    title_label.place(relx = 0.5, rely = 0.2, anchor = "center")
 
 # Widget creation functions
 def create_label(text, row):
-    return tk.Label(central_frame, text=text, font=label_font, bg="yellow").grid(row=row, column=0, sticky="e")
+    return tk.Label(central_frame, text = text, font = label_font, bg = "yellow").grid(row = row, column = 0, sticky = "e")
 
 def create_entry(row):
-    entry = tk.Entry(central_frame, width=80, font=entry_font)
-    entry.grid(row=row, column=1)
+    entry = tk.Entry(central_frame, width = 80, font = entry_font)
+    entry.grid(row = row, column = 1)
     return entry
 
 # Create input fields
@@ -94,8 +94,8 @@ opt_d_entry = create_entry(4)
 
 # Correct answer input
 correct_answer_label = create_label("Correct answer (a/b/c/d):", 5)
-correct_answer_entry = tk.Entry(central_frame, width=10, font=entry_font)
-correct_answer_entry.grid(row=5, column=1, sticky="w")
+correct_answer_entry = tk.Entry(central_frame, width=10, font = entry_font)
+correct_answer_entry.grid(row = 5, column = 1, sticky = "w")
 
 # Submission handling
 def submit_question():
@@ -139,14 +139,14 @@ def submit_question():
         messagebox.showerror("Error", f"Failed to save question: {str(e)}")
 
 # Buttons
-submit_button = tk.Button(central_frame, text="Submit", font=button_font, command=submit_question)
-submit_button.grid(row=6, column=1, sticky="e")
+submit_button = tk.Button(central_frame, text = "Submit", font=button_font, command=submit_question)
+submit_button.grid(row = 6, column = 1, sticky = "e")
 
 clear_button = tk.Button(central_frame, text="Clear All", font=button_font, 
                         command=lambda: [e.delete(0, tk.END) for e in [
                             question_entry, opt_a_entry, opt_b_entry,
                             opt_c_entry, opt_d_entry, correct_answer_entry
                         ]])
-clear_button.grid(row=6, column=0, sticky="e")
+clear_button.grid(row = 6, column = 0, sticky = "e")
 
 window_root.mainloop()
