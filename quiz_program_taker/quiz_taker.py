@@ -56,4 +56,9 @@ window_root.geometry("1600x800")
 window_root.resizable(False, False)
 
 # Background 
-bg_photo = 
+bg_photo = image_loader ("pokeball_bg.jpeg",(1600,800))
+if bg_photo:
+    tk.Label(window_root, image = bg_photo).place(x = 0, y = 0, relwidth = 1, relheight = 1)
+else:
+    window_root.configure(bg = "yellow")
+
