@@ -5,3 +5,24 @@ c) Generation 3
 d) Generation 4
 The correct answer: b
 ----------------------------------------
+Question: What is the maximum pokemon you can put in a party?
+a) 6
+b) 4
+c) 2
+d) 3
+Correct Answer: a
+----------------------------------------
+Question: what stone do you need to use to evolve kantonian Vulpix into  kantonian Ninetales?
+a) Ice stone
+b) fire stone
+c) water stone
+d) leaf stone
+Correct Answer: b
+----------------------------------------
+Question: how much is a regular pokeball cost?
+a) 100
+b) 150
+c) 200
+d) 250
+Correct Answer: c
+----------------------------------------
