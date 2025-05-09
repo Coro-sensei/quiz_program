@@ -13,7 +13,7 @@ def image_loader(path, size = None):
     try: 
         image = Image.open(path)
         if size:
-            image = image.resize(size, Image.ANTIALIAS)
+            image = image.resize(size, Image.Resampling.LANCZOS)
         return ImageTk.PhotoImage(image)
     
     except Exception as error:
@@ -22,37 +22,51 @@ def image_loader(path, size = None):
         return None
 
 # Reads and finds the text file
-quiz_data = []
+def load_quiz_data():
+    quiz_data = []
+    if not os.path.exists("quiz_maker_data.txt"):
+        messagebox.showerror("Error", "Quiz data not found. Run quiz maker first.")
+        exit()
 
-if os.path.exists("quiz_maker_data.txt"):
     with open("quiz_maker_data.txt", "r") as f:
-        blocks = f.read().strip().split("-" * 40)
-        for blocks in blocks:
-            lines = [line.strip() for line in blocks.strip().split("\n") if line.strip()]
-            if len(lines) < 6 or not lines[0].startswith("Question:"):
+        blocks = f.read().strip().split("\n" + "-" * 40 + "\n")
+        
+        for block in blocks:
+            lines = [line.strip() for line in block.split("\n") if line.strip()]
+            if len(lines) < 6:
                 continue
-        
-        if len(lines) >= 6:
-            
-            question_lines = lines[1][len("Question: ")].strip()
 
-            options = {
-                "letter_a": lines[1][4:].strip(),
-                "letter_b": lines[2][4:].strip(),
-                "letter_c": lines[3][4:].strip(),
-                "letter_d": lines[4][4:].strip(),
-            
-            }
-            correct = lines[5].split(":")[-1].strip().lower()
-        
-            if correct in options:
-                quiz_data.append((question_lines, options, correct))
-            else: 
-                print(f"Skipping block: Correct answer '{correct}' not in options.")
+            try:
+                # Extract question from first line
+                question = lines[0].split("Question: ")[1].strip()
+                
+                # Extract options (a-d)
+                options = {
+                    'a': lines[1][3:].strip(),  # Skip "a) "
+                    'b': lines[2][3:].strip(),
+                    'c': lines[3][3:].strip(),
+                    'd': lines[4][3:].strip()
+                }
+                
+                # Extract correct answer
+                correct = lines[5].split(": ")[1].strip().lower()
+                
+                if correct in options:
+                    quiz_data.append((question, options, correct))
+                else:
+                    print(f"Skipping invalid question: {question[:30]}...")
 
-else:
-    messagebox.showerror("Quiz data not found, Run the quiz maker first to make the quiz data.")
+            except (IndexError, KeyError) as e:
+                print(f"Error parsing block: {e}")
+                continue
+
+    return quiz_data
+
+quiz_data = load_quiz_data()
+if not quiz_data:
+    messagebox.showerror("Error", "No valid questions found in quiz data.")
     exit()
+
 
 # window size of GUI 
 window_root = tk.Tk()
