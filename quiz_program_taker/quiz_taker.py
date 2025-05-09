@@ -108,10 +108,21 @@ def load_question():
         for rad_but in radio_buttons.values():
             rad_but.pack_forget()
     submit_button.pack_forget()
-
 submit_button = tk.Button(frame, text = "Submit", font =("Arial", 16, "bold"))
 submit_button.pack(anchor = "e")
 
+# Submit answer
+def submit_answer():
+    global index, score
+    if selected_answer.get() == "":
+        messagebox.showwarning("No Answer", "Please select an option.")
+        return
+    _, _, correct = quiz_data[index]
+    if selected_answer.get() == correct:
+        score += 1
+    index += 1
+
+load_question()
 window_root.mainloop()
 
 
