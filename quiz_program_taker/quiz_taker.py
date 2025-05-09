@@ -74,4 +74,11 @@ question_label = tk.Label(frame, font = ("Arial", 20), bg = "yellow", wraplength
 
 question_label.pack(anchor = "w")
 
+radio_buttons = {}
+for key in ["a", "b", "c", "d"]:
+    rad_but = tk.Radiobutton(frame, variable = selected, value = key, font = ("Arial", 16), bg = "yellow", anchor = "w", justify = "left")
+
+    rad_but.pack(anchor = "w")
+    radio_buttons[key] = rad_but
+    
 
