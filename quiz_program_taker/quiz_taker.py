@@ -110,8 +110,7 @@ def load_question():
     submit_button.pack_forget()
     status_label.config(text = f"Your score: {score}/{len(quiz_data)}")
 
-submit_button = tk.Button(frame, text = "Submit", font =("Arial", 16, "bold"))
-submit_button.pack(anchor = "e")
+
 
 # Submit answer
 def submit_answer():
@@ -123,6 +122,9 @@ def submit_answer():
     if selected_answer.get() == correct:
         score += 1
     index += 1
+
+submit_button = tk.Button(frame, text = "Submit", font =("Arial", 16, "bold"), command = submit_answer)
+submit_button.pack(anchor = "e")
 
 load_question()
 window_root.mainloop()
