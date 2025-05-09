@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 import os 
 from PIL import Image, ImageTk
+import tkinter.font as tkFont
 
 
 def image_loader(path, size = None):
@@ -18,7 +19,7 @@ def image_loader(path, size = None):
         print(f"Image load failed: {error}")
         return None
 
-# Improved quiz data loader
+# Quiz data loader
 def load_quiz_data():
     quiz_data = []
     if not os.path.exists("quiz_maker_data.txt"):
@@ -70,6 +71,20 @@ window_root = tk.Tk()
 window_root.title("Pokemon Quiz Taker")
 window_root.geometry("1600x800")
 window_root.resizable(False, False)
+
+# Fonts
+try:
+    title_font = tkFont.Font(family = "Pokemon Hollow", size = 48)
+    question_font = tkFont.Font(family = "Kenney Mini Square", size = 20)
+    option_font = tkFont.Font(family="Kenney Mini Square", size=16)
+    button_font = tkFont.Font(family="Kenney Mini Square", size=18, weight="bold")
+
+except:
+    # If font not in system
+    title_font = tkFont.Font(family="Helvetica", size=36, weight="bold")
+    question_font = tkFont.Font(family="Arial", size=18)
+    option_font = tkFont.Font(family="Arial", size=14)
+    button_font = tkFont.Font(family="Arial", size=16, weight="bold")
 
 # Background
 bg_photo = image_loader("pokeball_bg.jpeg", (1600, 800))
