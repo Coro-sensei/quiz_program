@@ -7,6 +7,7 @@ from tkinter import messagebox
 import os 
 from PIL import Image, ImageTk
 
+
 def image_loader(path, size = None):
     try: 
         image = Image.open(path)
