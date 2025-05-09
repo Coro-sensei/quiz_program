@@ -68,7 +68,7 @@ else:
     window_root.configure(bg = "yellow")
 
 # Quiz Status
-index = [0]
+current_question = [0]
 score = [0]
 selected_answer = tk.StringVar()
 
@@ -92,11 +92,11 @@ status_label.pack()
 
 # Load the next question
 def load_question():
-    global index
+    global current_question, score 
 
     if index < len(quiz_data):
-        question_lines, options, _ = quiz_data[index]
-        question_label.config(text = f"Question{index + 1}: {question_lines}")
+        question_lines, options, _ = quiz_data[current_question]
+        question_label.config(text = f"Question{current_question + 1}: {question_lines}")
         for key in options:
             radio_buttons[key].config(text = f"{key.upper()}){options[key]}")
         selected_answer.set("")
