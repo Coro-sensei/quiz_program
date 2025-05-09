@@ -64,7 +64,7 @@ if title_image:
     title_label.place(relx = 0.5, rely = 0.2, anchor = "center")
 else:
     title_label = tk.Label(window_root, text = "Pokemon Quiz Maker", 
-                        font = ("Arial", 24, "bold"), bg = "yellow")
+                        font = ("Kenny Mini Square", 24, "bold"), bg = "yellow")
     title_label.place(relx = 0.5, rely = 0.2, anchor = "center")
 
 # Widget creation functions
