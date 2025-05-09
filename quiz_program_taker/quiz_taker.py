@@ -62,3 +62,16 @@ if bg_photo:
 else:
     window_root.configure(bg = "yellow")
 
+# Quiz Status
+index = [0]
+score = [0]
+selected = tk.StringVar()
+
+frame = tk.Frame(window_root, bg = "yellow", width = 1200, height = 600)
+frame.place(relx = 0.5, rely = 0.5, anchor = "center")
+
+question_label = tk.Label(frame, font = ("Arial", 20), bg = "yellow", wraplength = 1000, justify = "left")
+
+question_label.pack(anchor = "w")
+
+
