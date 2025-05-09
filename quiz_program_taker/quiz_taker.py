@@ -80,5 +80,8 @@ for key in ["a", "b", "c", "d"]:
 
     rad_but.pack(anchor = "w")
     radio_buttons[key] = rad_but
-    
+
+
+window_root.mainloop()
+
 
