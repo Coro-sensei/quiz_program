@@ -8,6 +8,7 @@ from tkinter import messagebox
 import os 
 from PIL import Image, ImageTk
 
+# Reads and finds the text file
 quiz_data = []
 
 if os.path.exists("quiz_maker_data.txt"):
@@ -35,4 +36,8 @@ else:
     messagebox.showerror("Quiz data not found, Run the quiz maker first to make the quiz data.")
     exit()
 
-    
+# window size of GUI 
+window_root = tk.Tk()
+window_root.title("Pokemon Quiz Taker")
+window_root.geometry("1600x800")
+window_root.resizable(False, False)
