@@ -8,6 +8,19 @@ from tkinter import messagebox
 import os 
 from PIL import Image, ImageTk
 
+# Image handler
+def image_loader(path, size = None):
+    try: 
+        image = Image.open(path)
+        if size:
+            image = image.resize(size, Image.ANTIALIAS)
+        return ImageTk.PhotoImage(image)
+    
+    except Exception as error:
+        print(f"Image failed for {path}: {"error"} ")
+
+        return None
+
 # Reads and finds the text file
 quiz_data = []
 
@@ -41,3 +54,6 @@ window_root = tk.Tk()
 window_root.title("Pokemon Quiz Taker")
 window_root.geometry("1600x800")
 window_root.resizable(False, False)
+
+# Background 
+bg_photo = 
