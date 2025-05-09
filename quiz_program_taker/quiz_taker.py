@@ -131,7 +131,7 @@ def show_question():
     global current_question
     if current_question < len(quiz_data):
         question, options, _ = quiz_data[current_question]
-        question_label.config(text=f"Question {current_question+1}: {question}")
+        question_label.config(text = f"Question {current_question+1}: {question}")
         
         for letter in ['a', 'b', 'c', 'd']:
             radio_buttons[letter].config(text = f"{letter.upper()}) {options[letter]}")
