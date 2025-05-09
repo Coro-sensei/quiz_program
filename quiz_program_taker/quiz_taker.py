@@ -103,7 +103,7 @@ frame = tk.Frame(window_root, bg = "yellow", width = 1200, height = 600)
 frame.place(relx = 0.5, rely = 0.5, anchor="center")
 
 # Question display
-question_label = tk.Label(frame, font = ("Arial", 20), bg = "yellow", 
+question_label = tk.Label(frame, font = question_font, bg = "yellow", 
                         wraplength = 1000, justify = "left")
 question_label.pack(anchor="w", pady = 20)
 
@@ -115,7 +115,7 @@ for letter in ['a', 'b', 'c', 'd']:
         text = "",
         variable = selected_answer,
         value = letter,
-        font = ("Arial", 16),
+        font = button_font,
         bg = "yellow",
         anchor = "w",
         justify = "left"
@@ -124,7 +124,7 @@ for letter in ['a', 'b', 'c', 'd']:
     radio_buttons[letter] = rb
 
 # Score display
-status_label = tk.Label(frame, font = ("Arial", 16), bg = "yellow", fg = "black")
+status_label = tk.Label(frame, font = option_font, bg = "yellow", fg = "black")
 status_label.pack(pady = 20)
 
 def show_question():
@@ -162,7 +162,7 @@ def check_answer():
     show_question()
 
 # Submit button
-submit_button = tk.Button(frame, text="Submit Answer", font=("Arial", 16, "bold"),
+submit_button = tk.Button(frame, text="Submit Answer", font= button_font,
                         command=check_answer)
 submit_button.pack(anchor="e", pady=20)
 
