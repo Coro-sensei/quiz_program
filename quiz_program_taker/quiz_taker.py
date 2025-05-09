@@ -86,6 +86,14 @@ for key in ["a", "b", "c", "d"]:
     rad_but.pack(anchor = "w")
     radio_buttons[key] = rad_but
 
+# Labels for feedback and score
+status_label = tk.Label(frame, font =("Arial, 16"), bg = "yellow", fg = "lightyellow")
+status_label.pack()
+
+
+
+
+
 
 window_root.mainloop()
 
