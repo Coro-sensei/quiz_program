@@ -70,7 +70,7 @@ else:
 # Quiz Status
 index = [0]
 score = [0]
-selected = tk.StringVar()
+selected_answer = tk.StringVar()
 
 frame = tk.Frame(window_root, bg = "yellow", width = 1200, height = 600)
 frame.place(relx = 0.5, rely = 0.5, anchor = "center")
@@ -81,7 +81,7 @@ question_label.pack(anchor = "w")
 
 radio_buttons = {}
 for key in ["a", "b", "c", "d"]:
-    rad_but = tk.Radiobutton(frame, variable = selected, value = key, font = ("Arial", 16), bg = "yellow", anchor = "w", justify = "left")
+    rad_but = tk.Radiobutton(frame, variable = selected_answer, value = key, font = ("Arial", 16), bg = "yellow", anchor = "w", justify = "left")
 
     rad_but.pack(anchor = "w")
     radio_buttons[key] = rad_but
@@ -90,10 +90,27 @@ for key in ["a", "b", "c", "d"]:
 status_label = tk.Label(frame, font =("Arial, 16"), bg = "yellow", fg = "lightyellow")
 status_label.pack()
 
+# Load the next question
+def load_question():
+    global index
 
+    if index < len(quiz_data):
+        question_lines, options, _ = quiz_data[index]
+        question_label.config(text = f"Question{index + 1}: {question_lines}")
+        for key in options:
+            radio_buttons[key].config(text = f"{key.upper()}){options[key]}")
+        selected_answer.set("")
+        status_label.config(text = "")
+    
+    else:
+        question_label.config(text = "Quiz Finished")
 
+        for rad_but in radio_buttons.values():
+            rad_but.pack_forget()
+    submit_button.pack_forget()
 
-
+submit_button = tk.Button(frame, text = "Submit", font =("Arial", 16, "bold"))
+submit_button.pack(anchor = "e")
 
 window_root.mainloop()
 
