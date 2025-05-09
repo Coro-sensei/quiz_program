@@ -4,7 +4,7 @@
 
 # Make the GUI 
 import os
-import tkinter as tk  # The library used 
+import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
 import tkinter.font as tkFont
@@ -16,155 +16,137 @@ window_root.title("Pokemon Quiz Maker")
 # Set the window dimensions
 window_width = 1600
 window_height = 800
-
-# Lock the window disable the resize
 window_root.resizable(False, False)
 
-# Get screen dimensions 
-screen_window_width = window_root.winfo_screenwidth()
-screen_window_height = window_root.winfo_screenheight()
-
-# Get the x and y for the window to be centered
-x = (screen_window_width // 2) - (window_width // 2)
-y = (screen_window_height // 2) - (window_height // 2)
-
-# Set the center for the window
+# Center the window
+screen_width = window_root.winfo_screenwidth()
+screen_height = window_root.winfo_screenheight()
+x = (screen_width - window_width) // 2
+y = (screen_height - window_height) // 2
 window_root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
-# The background
-try:
-    backdrop_image = Image.open("pokeball_bg.jpeg")
-    backdrop_image = backdrop_image.resize((window_width, window_height))
-    window_root.bg_photo = ImageTk.PhotoImage(backdrop_image)
+# Image handling improvements
+def load_image(path, size=None):
+    try:
+        image = Image.open(path)
+        if size:
+            image = image.resize(size, Image.Resampling.LANCZOS)
+        return ImageTk.PhotoImage(image)
+    except Exception as e:
+        messagebox.showerror("Image Error", f"Failed to load {path}: {str(e)}")
+        return None
 
-except Exception as e:
-    messagebox.showerror("error image.")
-    window_root.bg_photo = None
-
-if window_root.bg_photo:
-    backdrop_label = tk.Label(window_root, image = window_root.bg_photo)
-    backdrop_label.place(x = 0, y = 0, width = window_width, height = window_height)
+# Background with error handling
+bg_photo = load_image("pokeball_bg.jpeg", (window_width, window_height))
+if bg_photo:
+    tk.Label(window_root, image=bg_photo).place(x=0, y=0)
 else:
-    window_root.configure(bg = "yellow")
+    window_root.config(bg="yellow")
 
-# Font style 
-label_font = tkFont.Font(family = "Kenney Mini Square", size = 16)
-entry_font = tkFont.Font(family ="Kenney Mini Square", size = 14)
-button_font = tkFont.Font(family ="Kenney Mini Square", size = 16, weight = "bold")
-
-# Central frame to hold the widgets
-central_frame =  tk.Frame(window_root, bg = "yellow", width = window_width, height = window_height)
-central_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
-
-# Title label image 
+# Font handling with fallbacks
 try:
-    title_label = Image.open("pokeball_title.png")
-    title_label = title_label.resize((550, 250), Image.ANTIALIAS) # Image filter and resize 
-    title_image = ImageTk.PhotoImage(title_label)
+    label_font = tkFont.Font(family="Kenney Mini Square", size=16)
+    entry_font = tkFont.Font(family="Kenney Mini Square", size=14)
+    button_font = tkFont.Font(family="Kenney Mini Square", size=16, weight="bold")
+except:
+    label_font = tkFont.Font(size=16)
+    entry_font = tkFont.Font(size=14)
+    button_font = tkFont.Font(size=16, weight="bold")
 
-    # Position of the title label
-    title_pos = tk.Label(window_root, image = title_image, bg = "lightyellow")
-    title_pos.image = title_image
+# Central frame
+central_frame = tk.Frame(window_root, bg="yellow")
+central_frame.place(relx=0.5, rely=0.5, anchor="center")
 
-    title_pos_y = (window_height // 2) - 200
-    title_pos.place(relx = 0.5, rely = 0.4, anchor = "center", y = -title_pos_y)
-    
-except Exception as e: # This is if the image suddenly does load
-    title_label_2 = tk.Label(window_root, text = "Pokemon Quiz Maker", font = tkFont.Font(family = "Pokemon Hollow"), bg = "yellow")
-    title_label_2.place(relx = 0.5, rely = 0.3, anchor = "center")
-    messagebox.showerror("Title image error")
-    
-# Center the contents 
-central_frame.grid_columnconfigure(0, weight = 1)
-central_frame.grid_columnconfigure(1, weight = 1)
+# Title image with better error handling
+title_image = load_image("pokeball_title.png", (550, 250))
+if title_image:
+    title_label = tk.Label(window_root, image=title_image, bg="yellow")
+    title_label.place(relx=0.5, rely=0.2, anchor="center")
+else:
+    title_label = tk.Label(window_root, text="Pokemon Quiz Maker", 
+                        font=("Arial", 24, "bold"), bg="yellow")
+    title_label.place(relx=0.5, rely=0.2, anchor="center")
 
-# Do the code for the quiz maker itself 
-# Input questions   
-question_label = tk.Label(central_frame, text = "Enter your question: ", font = label_font, bg = "yellow")
-question_label.grid(row = 0, column = 0, sticky = "e")
-question_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-question_entry.grid(row = 0, column = 1)
+# Widget creation functions
+def create_label(text, row):
+    return tk.Label(central_frame, text=text, font=label_font, bg="yellow").grid(row=row, column=0, sticky="e")
 
-# Input 4 possible answers 
-# For option A
-opt_a_label = tk.Label(central_frame, text = "Option A:", font = label_font, bg = "yellow")
-opt_a_label.grid(row = 1, column = 0, sticky = "e")
-opt_a_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_a_entry.grid(row = 1, column = 1)
+def create_entry(row):
+    entry = tk.Entry(central_frame, width=80, font=entry_font)
+    entry.grid(row=row, column=1)
+    return entry
 
-# For Option B 
-opt_b_label = tk.Label(central_frame, text = "Option B:", font = label_font, bg = "yellow")
-opt_b_label.grid(row = 2, column = 0, sticky = "e")
-opt_b_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_b_entry.grid(row = 2, column = 1)
+# Create input fields
+question_label = create_label("Enter your question:", 0)
+question_entry = create_entry(0)
 
-# For Option C
-opt_c_label = tk.Label(central_frame, text = "Option C:", font = label_font, bg = "yellow")
-opt_c_label.grid(row = 3, column = 0, sticky = "e")
-opt_c_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_c_entry.grid(row = 3, column = 1)
+opt_a_label = create_label("Option A:", 1)
+opt_a_entry = create_entry(1)
 
-# For Option D
-opt_d_label = tk.Label(central_frame, text = "Option D:", font = label_font, bg = "yellow")
-opt_d_label.grid(row = 4, column = 0, sticky = "e")
-opt_d_entry = tk.Entry(central_frame, width = 80, font = entry_font)
-opt_d_entry.grid(row = 4, column = 1)
+opt_b_label = create_label("Option B:", 2)
+opt_b_entry = create_entry(2)
 
-# The correct answer
-correct_answer_label = tk.Label(central_frame, text = "Correct answer (a/b/c/d): ", font = label_font, bg = "yellow")
-correct_answer_label.grid(row = 5, column = 0, sticky = "e")
-correct_answer_entry = tk.Entry(central_frame, width = 10, font = entry_font)
-correct_answer_entry.grid(row = 5, column = 1, sticky = "w") 
+opt_c_label = create_label("Option C:", 3)
+opt_c_entry = create_entry(3)
 
-# Submit the inputs 
+opt_d_label = create_label("Option D:", 4)
+opt_d_entry = create_entry(4)
+
+# Correct answer input
+correct_answer_label = create_label("Correct answer (a/b/c/d):", 5)
+correct_answer_entry = tk.Entry(central_frame, width=10, font=entry_font)
+correct_answer_entry.grid(row=5, column=1, sticky="w")
+
+# Submission handling
 def submit_question():
-    question = question_entry.get()
-    letter_a = opt_a_entry.get()
-    letter_b = opt_b_entry.get()
-    letter_c = opt_c_entry.get()
-    letter_d = opt_d_entry.get()
-    correct = correct_answer_entry.get().lower() 
-
-    if correct not in ['letter_a', 'letter_b', 'letter_c', 'letter_d']:
-        messagebox.showerror("Invalid data", "Please put the correct answer that is within the options submitted")
+    # Get all values
+    entries = [
+        question_entry.get(),
+        opt_a_entry.get(),
+        opt_b_entry.get(),
+        opt_c_entry.get(),
+        opt_d_entry.get(),
+        correct_answer_entry.get().lower()
+    ]
+    
+    # Validation
+    if not all(entries):
+        messagebox.showerror("Error", "Please fill in all fields")
         return
-    if not all ([question, letter_a, letter_b, letter_c, letter_d]):
-        messagebox.showerror("Missing inputs, please fill all the entry boxes")
+    
+    if entries[5] not in ['a', 'b', 'c', 'd']:
+        messagebox.showerror("Error", "Correct answer must be a, b, c, or d")
         return
 
-# Write the data to a text file
-    with open("quiz_maker_data.txt", "a") as file:
-        file.write(f"Question: {question}\n")
-        file.write(f"a) {letter_a}\n")
-        file.write(f"b) {letter_b}\n")
-        file.write(f"c) {letter_c}\n")
-        file.write(f"d) {letter_d}\n")
-        file.write(f"The correct answer: {correct}\n")
-        file.write("-" * 40 + "\n")
-    messagebox.showinfo("Success", "Question is saved in a text file.")
+    # Save to file
+    try:
+        with open("quiz_maker_data.txt", "a") as f:
+            f.write(f"Question: {entries[0]}\n")
+            f.write(f"a) {entries[1]}\n")
+            f.write(f"b) {entries[2]}\n")
+            f.write(f"c) {entries[3]}\n")
+            f.write(f"d) {entries[4]}\n")
+            f.write(f"Correct Answer: {entries[5]}\n")
+            f.write("-" * 40 + "\n")
+        messagebox.showinfo("Success", "Question saved successfully!")
+        
+        # Clear entries
+        for entry in [question_entry, opt_a_entry, opt_b_entry, 
+                    opt_c_entry, opt_d_entry, correct_answer_entry]:
+            entry.delete(0, tk.END)
+            
+    except Exception as e:
+        messagebox.showerror("Error", f"Failed to save question: {str(e)}")
 
-# Delete the all the entry
-    question_entry.delete(0, tk.END)
-    opt_a_entry.delete(0, tk.END)
-    opt_b_entry.delete(0, tk.END)
-    opt_c_entry.delete(0, tk.END)
-    opt_d_entry.delete(0, tk.END)
-    correct_answer_entry.delete(0, tk.END)
+# Buttons
+submit_button = tk.Button(central_frame, text="Submit", font=button_font, command=submit_question)
+submit_button.grid(row=6, column=1, sticky="e")
 
-# Submit button for the def function to work
-submit_button = tk.Button(central_frame, text = "Submit", font = button_font, command = submit_question)
-submit_button.grid(row = 6, column = 1, sticky = "e")
+clear_button = tk.Button(central_frame, text="Clear All", font=button_font, 
+                        command=lambda: [e.delete(0, tk.END) for e in [
+                            question_entry, opt_a_entry, opt_b_entry,
+                            opt_c_entry, opt_d_entry, correct_answer_entry
+                        ]])
+clear_button.grid(row=6, column=0, sticky="e")
 
-# Delete button using def function
-def clear_entry():
-    question_entry.delete(0, tk.END)
-    opt_a_entry.delete(0, tk.END)
-    opt_b_entry.delete(0, tk.END)
-    opt_c_entry.delete(0, tk.END)
-    opt_d_entry.delete(0, tk.END)
-    correct_answer_entry.delete(0, tk.END)
-clear_button = tk.Button(central_frame, text = "Clear all entry", font = button_font, command = clear_entry)
-clear_button.grid(row = 6, column = 0, sticky = "e")
-
-# Run the app
 window_root.mainloop()
