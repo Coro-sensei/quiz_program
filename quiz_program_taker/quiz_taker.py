@@ -119,6 +119,7 @@ def submit_answer():
     _, _, correct = quiz_data[current_question]
     if selected_answer.get() == correct:
         score += 1
+
     current_question += 1
     if current_question < len(quiz_data):
         load_question()
@@ -128,7 +129,7 @@ def submit_answer():
 submit_button = tk.Button(frame, text = "Submit", font =("Arial", 16, "bold"), command = submit_answer)
 submit_button.pack(anchor = "e")
 
-load_question()
+
 window_root.mainloop()
 
 
