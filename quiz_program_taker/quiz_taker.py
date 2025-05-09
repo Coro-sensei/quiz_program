@@ -94,7 +94,7 @@ status_label.pack()
 def load_question():
     global current_question, score 
 
-    if index < len(quiz_data):
+    if current_question < len(quiz_data):
         question_lines, options, _ = quiz_data[current_question]
         question_label.config(text = f"Question{current_question + 1}: {question_lines}")
         for key in options:
@@ -110,18 +110,20 @@ def load_question():
     submit_button.pack_forget()
     status_label.config(text = f"Your score: {score}/{len(quiz_data)}")
 
-
-
 # Submit answer
 def submit_answer():
-    global index, score
+    global current_question, score
     if selected_answer.get() == "":
         messagebox.showwarning("No Answer", "Please select an option.")
         return
-    _, _, correct = quiz_data[index]
+    _, _, correct = quiz_data[current_question]
     if selected_answer.get() == correct:
         score += 1
-    index += 1
+    current_question += 1
+    if current_question < len(quiz_data):
+        load_question()
+    else:
+        load_question() 
 
 submit_button = tk.Button(frame, text = "Submit", font =("Arial", 16, "bold"), command = submit_answer)
 submit_button.pack(anchor = "e")
